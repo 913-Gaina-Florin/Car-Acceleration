@@ -11,7 +11,6 @@ import android.widget.ListView;
 import com.example.car.MyApplication;
 import com.example.car.R;
 import com.example.car.ResultAdaptor;
-import com.example.car.controller.MainActivityController;
 import com.example.car.controller.StatisticsActivityController;
 
 public class StatisticsActivity extends AppCompatActivity {

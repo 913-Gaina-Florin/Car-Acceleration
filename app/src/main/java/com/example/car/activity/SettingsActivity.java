@@ -4,7 +4,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -13,9 +12,7 @@ import android.widget.Switch;
 
 import com.example.car.MyApplication;
 import com.example.car.R;
-import com.example.car.Repository.DiskRepository;
 import com.example.car.controller.SettingsActivityController;
-import com.example.car.controller.StatisticsActivityController;
 import com.example.car.controller.Validator;
 
 public class SettingsActivity extends AppCompatActivity {

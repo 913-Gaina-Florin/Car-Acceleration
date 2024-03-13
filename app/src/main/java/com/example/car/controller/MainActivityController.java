@@ -6,10 +6,10 @@ import static java.lang.Math.max;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.car.MainActivity;
+import com.example.car.activity.MainActivity;
 import com.example.car.Repository.DiskRepository;
-import com.example.car.Result;
-import com.example.car.ResultsActivity;
+import com.example.car.model.Result;
+import com.example.car.activity.ResultsActivity;
 import com.example.car.activity.SettingsActivity;
 import com.example.car.activity.StatisticsActivity;
 
@@ -69,13 +69,7 @@ public class MainActivityController{
     }
 
     public void startResultsActivity(){
-        Intent intent = new Intent(this.activityContext, ResultsActivity.class);
-        Result lastResult = this.getLastResult();
-
-        intent.putExtra("totalTime", Double.toString(lastResult.getTime_0_100()));
-        intent.putExtra("averageSpeed", Double.toString(lastResult.getAverageSpeed()));
-        intent.putExtra("maxSpeed", Integer.toString(lastResult.getMaxSpeed()));
-        startActivity(this.activityContext, intent, null);
+        startActivity(this.activityContext, new Intent(this.activityContext, ResultsActivity.class), null);
     }
 
     public void startSettingsActivity(){
@@ -170,15 +164,6 @@ public class MainActivityController{
 
     private void addResult() {
         this.repository.addEntity(new Result(this.computeTotalTime(), this.maxSpeed, this.getAverageSpeed(), this.getCurrentDateTime()));
-    }
-
-    private Result getLastResult(){
-        ArrayList<Result> resultList = this.repository.getAllEntities();
-
-        if (resultList.size() > 0)
-            return resultList.get(resultList.size() - 1);
-        else
-            return new Result(0, 0, 0, "2000/01/01 00:00:00");
     }
 
     private double getAverageSpeed(){
